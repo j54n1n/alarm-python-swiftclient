@@ -7,13 +7,13 @@ pkgrel=1
 arch=('any')
 url=https://github.com/openstack/python-swiftclient
 license=('Apache')
-#depends=()
+depends=('python2')
 makedepends=('python2-setuptools')
 source=("${url}/archive/${pkgver}.tar.gz")
 md5sums=('SKIP')
 
 prepare() {
-  find $pkgname-$pkgver -type f -exec sed -ri 's:^#!/usr/bin/(env )?python$:&2:' '{}' \;
+  find "${pkgname}-${pkgver}" -type f -exec sed -ri 's:^#!/usr/bin/(env )?python$:&2:' '{}' \;
 }
 
 build() {
